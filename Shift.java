@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ShiftEncoder {
+public class Shift {
     public static void main (String args[]) {
 
         Scanner scan = new Scanner(System.in);
@@ -8,7 +8,7 @@ public class ShiftEncoder {
         System.out.print("Enter plaintext: ");
         String plaintext = scan.nextLine();
 
-        System.out.print("Enter key: ");
+        System.out.print("Enter an integer key: ");
         int key = scan.nextInt();
 
         char[] cipherArray = new char[plaintext.length()];
@@ -17,10 +17,16 @@ public class ShiftEncoder {
                 
             if(((int)(plaintext.charAt(i)) >= 97) && ((int)(plaintext.charAt(i)) <= 122)) {
                 cipherArray[i] = (char) (((((int) (plaintext.charAt(i) - 97)) + key) % 26) + 97);
+                if (cipherArray[i] < 97) {
+                    cipherArray[i] += 26;
+                }
             } 
                 
             else if(((int)(plaintext.charAt(i)) >= 65) && ((int)(plaintext.charAt(i)) <= 90)) {
                 cipherArray[i] = (char) (((((int) (plaintext.charAt(i) - 65)) + key) % 26) + 65);
+                if (cipherArray[i] < 65) {
+                    cipherArray[i] += 26;
+                }
             }
 
             else {
