@@ -51,7 +51,6 @@ public class Shift {
             else {
                 cipherArray[i] = plaintext.charAt(i);
             }
-
         } 
 
         //Convert the array of characters into a string
